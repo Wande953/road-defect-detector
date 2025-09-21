@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "generation_date": "2025-09-11T20:59:13.822259",
+    "total_defects": 1,
+    "report_id": "DETAILED_20250911_205913"
+  },
+  "defects": [
+    {
+      "class": "Pothole",
+      "class_id": 2,
+      "confidence": 0.4950539469718933,
+      "bbox": [
+        243.1282196044922,
+        219.7579345703125,
+        452.72003173828125,
+        429.53826904296875
+      ],
+      "severity": "MEDIUM",
+      "timestamp": "2025-09-11T20:59:13.501684"
+    }
+  ],
+  "analysis": {
+    "most_common_defect": "Pothole",
+    "highest_severity": {
+      "class": "Pothole",
+      "class_id": 2,
+      "confidence": 0.4950539469718933,
+      "bbox": [
+        243.1282196044922,
+        219.7579345703125,
+        452.72003173828125,
+        429.53826904296875
+      ],
+      "severity": "MEDIUM",
+      "timestamp": "2025-09-11T20:59:13.501684"
+    },
+    "average_confidence": 0.4950539469718933
+  }
+}

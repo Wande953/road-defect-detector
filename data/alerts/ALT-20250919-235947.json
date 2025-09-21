@@ -1,0 +1,15 @@
+{
+  "alert_id": "ALT-20250919-235947",
+  "timestamp": "2025-09-19T23:59:47.241149",
+  "location": {
+    "latitude": 40.778772,
+    "longitude": -74.004531,
+    "address": "862 Main St, City Center"
+  },
+  "critical_issues": 1,
+  "message": "\ud83d\udea8 1 CRITICAL road defects detected!",
+  "defects": [
+    "Pothole (29cm)"
+  ],
+  "status": "PENDING"
+}

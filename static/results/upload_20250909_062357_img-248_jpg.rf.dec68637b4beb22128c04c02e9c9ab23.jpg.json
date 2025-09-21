@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "detections": [
+    {
+      "class": "Pothole",
+      "confidence": 0.79,
+      "severity": "Low",
+      "reliability": "Very High (Simulated)"
+    },
+    {
+      "class": "Pothole",
+      "confidence": 0.41,
+      "severity": "Low",
+      "reliability": "Very High (Simulated)"
+    },
+    {
+      "class": "Longitudinal",
+      "confidence": 0.58,
+      "severity": "Medium",
+      "reliability": "Very High (Simulated)"
+    }
+  ],
+  "total_detections": 3,
+  "detection_count": {
+    "Pothole": 2,
+    "Longitudinal": 1,
+    "Transverse": 0,
+    "Alligator": 0
+  },
+  "performance_insights": {
+    "overall_mAP50": 0.879,
+    "class_accuracies": {
+      "Pothole": 0.994,
+      "Longitudinal": 0.983,
+      "Transverse": 0.984,
+      "Alligator": 0.556
+    }
+  },
+  "timestamp": "2025-09-09T06:23:57.949924",
+  "model_version": "road_defect_v1 (87.9% mAP50 - Simulated)",
+  "filename": "upload_20250909_062357_img-248_jpg.rf.dec68637b4beb22128c04c02e9c9ab23.jpg",
+  "original_filename": "img-248_jpg.rf.dec68637b4beb22128c04c02e9c9ab23.jpg"
+}

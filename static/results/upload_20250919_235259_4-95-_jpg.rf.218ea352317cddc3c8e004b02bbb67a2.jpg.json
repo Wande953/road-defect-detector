@@ -1,0 +1,50 @@
+{
+  "success": true,
+  "detections": [
+    {
+      "class": "Longitudinal",
+      "confidence": 0.94,
+      "severity": "High",
+      "reliability": "Very High (98.3%)",
+      "size": "37cm",
+      "repair_priority": "HIGH (72h)"
+    },
+    {
+      "class": "Pothole",
+      "confidence": 0.63,
+      "severity": "High",
+      "reliability": "Very High (99.4%)",
+      "size": "46cm",
+      "repair_priority": "MEDIUM (1 week)"
+    }
+  ],
+  "total_detections": 2,
+  "detection_count": {
+    "Pothole": 1,
+    "Longitudinal": 1,
+    "Transverse": 0,
+    "Alligator": 0
+  },
+  "performance_insights": {
+    "overall_mAP50": 0.879,
+    "class_accuracies": {
+      "Pothole": 0.994,
+      "Longitudinal": 0.983,
+      "Transverse": 0.984,
+      "Alligator": 0.556
+    }
+  },
+  "timestamp": "2025-09-19T23:52:59.453528",
+  "model_version": "road_defect_v1 (87.9% mAP50)",
+  "location": {
+    "latitude": 40.682362,
+    "longitude": -73.968042,
+    "address": "242 Main St, City Center"
+  },
+  "image_metadata": {
+    "resolution": "1920x1080",
+    "file_size": "3770KB"
+  },
+  "filename": "upload_20250919_235259_4-95-_jpg.rf.218ea352317cddc3c8e004b02bbb67a2.jpg",
+  "original_filename": "4-95-_jpg.rf.218ea352317cddc3c8e004b02bbb67a2.jpg"
+}

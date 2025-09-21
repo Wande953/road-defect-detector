@@ -1,0 +1,90 @@
+{
+  "success": true,
+  "detections": [
+    {
+      "class": "Transverse",
+      "confidence": 0.88,
+      "severity": "Low",
+      "reliability": "Very High (Simulated)",
+      "bbox": [
+        19,
+        85,
+        272,
+        189
+      ]
+    },
+    {
+      "class": "Alligator",
+      "confidence": 0.79,
+      "severity": "Medium",
+      "reliability": "Very High (Simulated)",
+      "bbox": [
+        9,
+        24,
+        252,
+        288
+      ]
+    },
+    {
+      "class": "Longitudinal",
+      "confidence": 0.66,
+      "severity": "Low",
+      "reliability": "Very High (Simulated)",
+      "bbox": [
+        35,
+        34,
+        291,
+        253
+      ]
+    },
+    {
+      "class": "Longitudinal",
+      "confidence": 0.77,
+      "severity": "High",
+      "reliability": "Very High (Simulated)",
+      "bbox": [
+        25,
+        36,
+        181,
+        248
+      ]
+    },
+    {
+      "class": "Pothole",
+      "confidence": 0.54,
+      "severity": "Medium",
+      "reliability": "Very High (Simulated)",
+      "bbox": [
+        58,
+        46,
+        229,
+        165
+      ]
+    }
+  ],
+  "total_detections": 5,
+  "detection_count": {
+    "Pothole": 1,
+    "Longitudinal": 2,
+    "Transverse": 1,
+    "Alligator": 1
+  },
+  "performance_insights": {
+    "overall_mAP50": 0.879,
+    "class_accuracies": {
+      "Pothole": 0.994,
+      "Longitudinal": 0.983,
+      "Transverse": 0.984,
+      "Alligator": 0.556
+    }
+  },
+  "timestamp": "2025-09-11T18:01:39.659431",
+  "model_version": "road_defect_v1 (87.9% mAP50 - Simulated)",
+  "filename": "20250911_180139_4-129-_jpg.rf.3f8e6f25c25101d35a9bf3dd865a99bf.jpg",
+  "original_filename": "4-129-_jpg.rf.3f8e6f25c25101d35a9bf3dd865a99bf.jpg",
+  "file_type": "image",
+  "charts": {
+    "distribution_chart": "/static/charts/20250911_180139_4-129-_jpg.rf.3f8e6f25c25101d35a9bf3dd865a99bf.jpg_distribution.png",
+    "confidence_chart": "/static/charts/20250911_180139_4-129-_jpg.rf.3f8e6f25c25101d35a9bf3dd865a99bf.jpg_confidence.png"
+  }
+}

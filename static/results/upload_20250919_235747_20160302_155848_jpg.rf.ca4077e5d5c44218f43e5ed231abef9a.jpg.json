@@ -1,0 +1,82 @@
+{
+  "success": true,
+  "detections": [
+    {
+      "class": "Alligator",
+      "confidence": 0.59,
+      "severity": "Medium",
+      "reliability": "Moderate (55.6%)",
+      "size": "50cm",
+      "repair_priority": "LOW (2 weeks)"
+    },
+    {
+      "class": "Pothole",
+      "confidence": 0.89,
+      "severity": "CRITICAL",
+      "reliability": "Very High (99.4%)",
+      "size": "39cm",
+      "repair_priority": "URGENT (24h)"
+    },
+    {
+      "class": "Pothole",
+      "confidence": 0.46,
+      "severity": "Medium",
+      "reliability": "Very High (99.4%)",
+      "size": "26cm",
+      "repair_priority": "LOW (2 weeks)"
+    },
+    {
+      "class": "Pothole",
+      "confidence": 0.45,
+      "severity": "Medium",
+      "reliability": "Very High (99.4%)",
+      "size": "39cm",
+      "repair_priority": "LOW (2 weeks)"
+    },
+    {
+      "class": "Pothole",
+      "confidence": 0.59,
+      "severity": "Medium",
+      "reliability": "Very High (99.4%)",
+      "size": "13cm",
+      "repair_priority": "LOW (2 weeks)"
+    },
+    {
+      "class": "Alligator",
+      "confidence": 0.91,
+      "severity": "High",
+      "reliability": "Moderate (55.6%)",
+      "size": "32cm",
+      "repair_priority": "HIGH (72h)"
+    }
+  ],
+  "total_detections": 6,
+  "detection_count": {
+    "Pothole": 4,
+    "Longitudinal": 0,
+    "Transverse": 0,
+    "Alligator": 2
+  },
+  "performance_insights": {
+    "overall_mAP50": 0.879,
+    "class_accuracies": {
+      "Pothole": 0.994,
+      "Longitudinal": 0.983,
+      "Transverse": 0.984,
+      "Alligator": 0.556
+    }
+  },
+  "timestamp": "2025-09-19T23:57:47.213053",
+  "model_version": "road_defect_v1 (87.9% mAP50)",
+  "location": {
+    "latitude": 40.638169,
+    "longitude": -74.024377,
+    "address": "652 Main St, City Center"
+  },
+  "image_metadata": {
+    "resolution": "1920x1080",
+    "file_size": "2063KB"
+  },
+  "filename": "upload_20250919_235747_20160302_155848_jpg.rf.ca4077e5d5c44218f43e5ed231abef9a.jpg",
+  "original_filename": "20160302_155848_jpg.rf.ca4077e5d5c44218f43e5ed231abef9a.jpg"
+}

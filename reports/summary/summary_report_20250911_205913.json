@@ -1,0 +1,24 @@
+{
+  "timestamp": "20250911_205913",
+  "total_defects": 1,
+  "defects_by_type": {
+    "Alligator": 0,
+    "Longitudinal": 0,
+    "Pothole": 1,
+    "Transverse": 0
+  },
+  "defects_by_severity": {
+    "HIGH": 0,
+    "MEDIUM": 1,
+    "LOW": 0
+  },
+  "confidence_stats": {
+    "mean": 0.4950539469718933,
+    "max": 0.4950539469718933,
+    "min": 0.4950539469718933,
+    "std": 0.0
+  },
+  "time_analysis": {
+    "analysis": "Temporal patterns analysis would be implemented here"
+  }
+}

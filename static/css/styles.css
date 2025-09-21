@@ -1,0 +1,49 @@
+/* static/css/styles.css */
+.severity-high {
+    border-left: 4px solid #dc3545;
+}
+
+.severity-medium {
+    border-left: 4px solid #ffc107;
+}
+
+.severity-low {
+    border-left: 4px solid #28a745;
+}
+
+.card-dashboard {
+    transition: transform 0.2s;
+    margin-bottom: 20px;
+}
+
+.card-dashboard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.video-container {
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #000;
+}
+
+#detectionsTable {
+    font-size: 0.9rem;
+}
+
+.badge {
+    font-size: 0.75em;
+}
+
+.alert-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1050;
+    animation: slideIn 0.5s forwards;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}

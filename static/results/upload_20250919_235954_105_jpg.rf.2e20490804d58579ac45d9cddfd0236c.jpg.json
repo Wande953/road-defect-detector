@@ -1,0 +1,82 @@
+{
+  "success": true,
+  "detections": [
+    {
+      "class": "Transverse",
+      "confidence": 0.61,
+      "severity": "Medium",
+      "reliability": "Very High (98.4%)",
+      "size": "18cm",
+      "repair_priority": "MEDIUM (1 week)"
+    },
+    {
+      "class": "Alligator",
+      "confidence": 0.44,
+      "severity": "Low",
+      "reliability": "Moderate (55.6%)",
+      "size": "42cm",
+      "repair_priority": "LOW (2 weeks)"
+    },
+    {
+      "class": "Transverse",
+      "confidence": 0.82,
+      "severity": "High",
+      "reliability": "Very High (98.4%)",
+      "size": "21cm",
+      "repair_priority": "HIGH (72h)"
+    },
+    {
+      "class": "Pothole",
+      "confidence": 0.46,
+      "severity": "Medium",
+      "reliability": "Very High (99.4%)",
+      "size": "28cm",
+      "repair_priority": "LOW (2 weeks)"
+    },
+    {
+      "class": "Pothole",
+      "confidence": 0.48,
+      "severity": "Medium",
+      "reliability": "Very High (99.4%)",
+      "size": "48cm",
+      "repair_priority": "LOW (2 weeks)"
+    },
+    {
+      "class": "Alligator",
+      "confidence": 0.71,
+      "severity": "High",
+      "reliability": "Moderate (55.6%)",
+      "size": "43cm",
+      "repair_priority": "MEDIUM (1 week)"
+    }
+  ],
+  "total_detections": 6,
+  "detection_count": {
+    "Pothole": 2,
+    "Longitudinal": 0,
+    "Transverse": 2,
+    "Alligator": 2
+  },
+  "performance_insights": {
+    "overall_mAP50": 0.879,
+    "class_accuracies": {
+      "Pothole": 0.994,
+      "Longitudinal": 0.983,
+      "Transverse": 0.984,
+      "Alligator": 0.556
+    }
+  },
+  "timestamp": "2025-09-19T23:59:54.225449",
+  "model_version": "road_defect_v1 (87.9% mAP50)",
+  "location": {
+    "latitude": 40.640169,
+    "longitude": -74.02613,
+    "address": "776 Main St, City Center"
+  },
+  "image_metadata": {
+    "resolution": "1920x1080",
+    "file_size": "1012KB"
+  },
+  "filename": "upload_20250919_235954_105_jpg.rf.2e20490804d58579ac45d9cddfd0236c.jpg",
+  "original_filename": "105_jpg.rf.2e20490804d58579ac45d9cddfd0236c.jpg"
+}

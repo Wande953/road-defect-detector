@@ -1,0 +1,66 @@
+{
+  "success": true,
+  "detections": [
+    {
+      "class": "Longitudinal",
+      "confidence": 0.85,
+      "severity": "High",
+      "reliability": "Very High (98.3%)",
+      "size": "24cm",
+      "repair_priority": "HIGH (72h)"
+    },
+    {
+      "class": "Pothole",
+      "confidence": 0.46,
+      "severity": "Medium",
+      "reliability": "Very High (99.4%)",
+      "size": "13cm",
+      "repair_priority": "LOW (2 weeks)"
+    },
+    {
+      "class": "Alligator",
+      "confidence": 0.53,
+      "severity": "Medium",
+      "reliability": "Moderate (55.6%)",
+      "size": "50cm",
+      "repair_priority": "LOW (2 weeks)"
+    },
+    {
+      "class": "Alligator",
+      "confidence": 0.68,
+      "severity": "Medium",
+      "reliability": "Moderate (55.6%)",
+      "size": "44cm",
+      "repair_priority": "MEDIUM (1 week)"
+    }
+  ],
+  "total_detections": 4,
+  "detection_count": {
+    "Pothole": 1,
+    "Longitudinal": 1,
+    "Transverse": 0,
+    "Alligator": 2
+  },
+  "performance_insights": {
+    "overall_mAP50": 0.879,
+    "class_accuracies": {
+      "Pothole": 0.994,
+      "Longitudinal": 0.983,
+      "Transverse": 0.984,
+      "Alligator": 0.556
+    }
+  },
+  "timestamp": "2025-09-19T23:56:34.532557",
+  "model_version": "road_defect_v1 (87.9% mAP50)",
+  "location": {
+    "latitude": 40.716936,
+    "longitude": -73.923467,
+    "address": "542 Main St, City Center"
+  },
+  "image_metadata": {
+    "resolution": "1920x1080",
+    "file_size": "752KB"
+  },
+  "filename": "upload_20250919_235634_108_jpg.rf.20148279fa89d7b5245c0533b25c1272.jpg",
+  "original_filename": "108_jpg.rf.20148279fa89d7b5245c0533b25c1272.jpg"
+}

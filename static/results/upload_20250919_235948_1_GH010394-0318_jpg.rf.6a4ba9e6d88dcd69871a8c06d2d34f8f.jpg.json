@@ -1,0 +1,58 @@
+{
+  "success": true,
+  "detections": [
+    {
+      "class": "Transverse",
+      "confidence": 0.55,
+      "severity": "Medium",
+      "reliability": "Very High (98.4%)",
+      "size": "5cm",
+      "repair_priority": "LOW (2 weeks)"
+    },
+    {
+      "class": "Pothole",
+      "confidence": 0.85,
+      "severity": "CRITICAL",
+      "reliability": "Very High (99.4%)",
+      "size": "40cm",
+      "repair_priority": "URGENT (24h)"
+    },
+    {
+      "class": "Pothole",
+      "confidence": 0.56,
+      "severity": "Medium",
+      "reliability": "Very High (99.4%)",
+      "size": "37cm",
+      "repair_priority": "LOW (2 weeks)"
+    }
+  ],
+  "total_detections": 3,
+  "detection_count": {
+    "Pothole": 2,
+    "Longitudinal": 0,
+    "Transverse": 1,
+    "Alligator": 0
+  },
+  "performance_insights": {
+    "overall_mAP50": 0.879,
+    "class_accuracies": {
+      "Pothole": 0.994,
+      "Longitudinal": 0.983,
+      "Transverse": 0.984,
+      "Alligator": 0.556
+    }
+  },
+  "timestamp": "2025-09-19T23:59:48.276238",
+  "model_version": "road_defect_v1 (87.9% mAP50)",
+  "location": {
+    "latitude": 40.632112,
+    "longitude": -74.057069,
+    "address": "464 Main St, City Center"
+  },
+  "image_metadata": {
+    "resolution": "1920x1080",
+    "file_size": "2244KB"
+  },
+  "filename": "upload_20250919_235948_1_GH010394-0318_jpg.rf.6a4ba9e6d88dcd69871a8c06d2d34f8f.jpg",
+  "original_filename": "1_GH010394-0318_jpg.rf.6a4ba9e6d88dcd69871a8c06d2d34f8f.jpg"
+}

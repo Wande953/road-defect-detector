@@ -1,0 +1,74 @@
+{
+  "success": true,
+  "detections": [
+    {
+      "class": "Longitudinal",
+      "confidence": 0.6,
+      "severity": "Medium",
+      "reliability": "Very High (98.3%)",
+      "size": "5cm",
+      "repair_priority": "LOW (2 weeks)"
+    },
+    {
+      "class": "Pothole",
+      "confidence": 0.47,
+      "severity": "Medium",
+      "reliability": "Very High (99.4%)",
+      "size": "45cm",
+      "repair_priority": "LOW (2 weeks)"
+    },
+    {
+      "class": "Alligator",
+      "confidence": 0.59,
+      "severity": "Medium",
+      "reliability": "Moderate (55.6%)",
+      "size": "9cm",
+      "repair_priority": "LOW (2 weeks)"
+    },
+    {
+      "class": "Longitudinal",
+      "confidence": 0.7,
+      "severity": "Medium",
+      "reliability": "Very High (98.3%)",
+      "size": "43cm",
+      "repair_priority": "MEDIUM (1 week)"
+    },
+    {
+      "class": "Longitudinal",
+      "confidence": 0.58,
+      "severity": "Medium",
+      "reliability": "Very High (98.3%)",
+      "size": "11cm",
+      "repair_priority": "LOW (2 weeks)"
+    }
+  ],
+  "total_detections": 5,
+  "detection_count": {
+    "Pothole": 1,
+    "Longitudinal": 3,
+    "Transverse": 0,
+    "Alligator": 1
+  },
+  "performance_insights": {
+    "overall_mAP50": 0.879,
+    "class_accuracies": {
+      "Pothole": 0.994,
+      "Longitudinal": 0.983,
+      "Transverse": 0.984,
+      "Alligator": 0.556
+    }
+  },
+  "timestamp": "2025-09-19T23:57:31.165963",
+  "model_version": "road_defect_v1 (87.9% mAP50)",
+  "location": {
+    "latitude": 40.774478,
+    "longitude": -73.922726,
+    "address": "176 Main St, City Center"
+  },
+  "image_metadata": {
+    "resolution": "1920x1080",
+    "file_size": "1153KB"
+  },
+  "filename": "upload_20250919_235731_frame3837_jpg.rf.a63583df85662145659b853e8677c0cb.jpg",
+  "original_filename": "frame3837_jpg.rf.a63583df85662145659b853e8677c0cb.jpg"
+}

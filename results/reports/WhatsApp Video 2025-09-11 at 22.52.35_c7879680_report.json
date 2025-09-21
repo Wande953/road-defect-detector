@@ -1,0 +1,36 @@
+{
+  "video_name": "WhatsApp Video 2025-09-11 at 22.52.35_c7879680.mp4",
+  "processing_date": "2025-09-11T22:55:15.996976",
+  "video_info": {
+    "total_frames": 3369,
+    "processed_frames": 842,
+    "fps": 30,
+    "duration": 112.3,
+    "processing_time": 84.87480115890503,
+    "output_path": "results/processed_WhatsApp Video 2025-09-11 at 22.52.35_c7879680.mp4"
+  },
+  "detection_summary": {
+    "total_defects": 1344,
+    "defects_by_type": {
+      "Alligator": 654,
+      "Pothole": 299,
+      "Longitudinal": 353,
+      "Transverse": 38
+    },
+    "defects_by_severity": {
+      "HIGH": 38,
+      "MEDIUM": 260,
+      "LOW": 1046
+    },
+    "defects_over_time": []
+  },
+  "model_info": {
+    "confidence_threshold": 0.2,
+    "classes": [
+      "Alligator",
+      "Longitudinal",
+      "Pothole",
+      "Transverse"
+    ]
+  }
+}

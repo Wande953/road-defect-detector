@@ -1,0 +1,369 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Road Defect Detection System</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        /* Add to existing styles */
+        .tab-container {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .tab {
+            padding: 15px 30px;
+            cursor: pointer;
+            border: none;
+            background: #f8f9fa;
+            margin-right: 5px;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .tab.active {
+            background: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        #map {
+            height: 400px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .alert-banner {
+            background: #ff4757;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            display: none;
+        }
+
+        .report-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛣️ Advanced Road Defect Detection System</h1>
+            <p>Powered by YOLOv8 • Real-time Analytics • GIS Mapping • Automated Reporting</p>
+        </div>
+
+        <div class="tab-container">
+            <button class="tab active" onclick="showTab('dashboard')">📊 Dashboard</button>
+            <button class="tab" onclick="showTab('map')">🗺️ Live Map</button>
+            <button class="tab" onclick="showTab('reports')">📋 Reports</button>
+            <button class="tab" onclick="showTab('alerts')">🚨 Alerts</button>
+            <button class="tab" onclick="showTab('analytics')">📈 Analytics</button>
+        </div>
+
+        <!-- Alert Banner -->
+        <div class="alert-banner" id="alertBanner">
+            <span id="alertMessage"></span>
+            <button onclick="hideAlert()" style="float: right; background: none; border: none; color: white;">✕</button>
+        </div>
+
+        <!-- Dashboard Tab -->
+        <div class="tab-content active" id="dashboard">
+            <!-- Existing dashboard content -->
+            <div class="stats-grid" id="statsGrid"></div>
+
+            <div class="upload-section">
+                <h2>Upload Road Image for Analysis</h2>
+                <input type="file" id="fileInput" accept="image/*" style="display: none;">
+
+                <div style="margin: 15px 0;">
+                    <label>Location (optional):</label><br>
+                    <input type="text" id="locationInput" placeholder="Address or GPS coordinates"
+                           style="padding: 10px; width: 300px; margin: 5px;">
+                </div>
+
+                <button onclick="document.getElementById('fileInput').click()">📁 Choose Image</button>
+                <button onclick="analyzeImage()" style="background: #4CAF50;">🔍 Analyze Image</button>
+
+                <div id="selectedFileName"></div>
+            </div>
+
+            <div class="results-section">
+                <h2>Latest Detection Results</h2>
+                <div id="resultsContainer">
+                    <p>No analysis performed yet. Upload an image to get started.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Map Tab -->
+        <div class="tab-content" id="map">
+            <h2>🚧 Defect Distribution Map</h2>
+            <div id="map"></div>
+            <div id="mapLegend">
+                <div>🔴 Critical (5+ defects)</div>
+                <div>🟡 Moderate (2-4 defects)</div>
+                <div>🟢 Low (1 defect)</div>
+            </div>
+        </div>
+
+        <!-- Reports Tab -->
+        <div class="tab-content" id="reports">
+            <h2>📋 Maintenance Reports</h2>
+            <button onclick="generateSummaryReport()" style="margin: 10px 0;">📄 Generate Summary Report</button>
+            <div id="reportsContainer"></div>
+        </div>
+
+        <!-- Alerts Tab -->
+        <div class="tab-content" id="alerts">
+            <h2>🚨 Critical Alerts</h2>
+            <div id="alertsContainer"></div>
+        </div>
+
+        <!-- Analytics Tab -->
+        <div class="tab-content" id="analytics">
+            <h2>📈 System Analytics</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div>
+                    <h3>Defect Distribution</h3>
+                    <canvas id="defectChart" width="400" height="300"></canvas>
+                </div>
+                <div>
+                    <h3>Severity Analysis</h3>
+                    <canvas id="severityChart" width="400" height="300"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced JavaScript with all new features
+        let map, defectChart, severityChart;
+
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+
+            document.getElementById(tabName).classList.add('active');
+            document.querySelector(`.tab[onclick="showTab('${tabName}')"]`).classList.add('active');
+
+            if (tabName === 'map') initMap();
+            if (tabName === 'analytics') initCharts();
+            if (tabName === 'reports') loadReports();
+            if (tabName === 'alerts') loadAlerts();
+        }
+
+        function initMap() {
+            if (!map) {
+                map = L.map('map').setView([40.7128, -74.0060], 13);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors'
+                }).addTo(map);
+            }
+
+            loadMapData();
+        }
+
+        async function loadMapData() {
+            try {
+                const response = await fetch('/map-data');
+                const data = await response.json();
+
+                data.forEach(point => {
+                    const color = point.critical > 2 ? 'red' : point.defects > 1 ? 'orange' : 'green';
+                    const marker = L.circleMarker([point.lat, point.lng], {
+                        color: color,
+                        fillColor: color,
+                        fillOpacity: 0.5,
+                        radius: 8
+                    }).addTo(map);
+
+                    marker.bindPopup(`
+                        <b>${point.defects} defects detected</b><br>
+                        ${point.critical} critical issues<br>
+                        ${new Date(point.timestamp).toLocaleString()}
+                    `);
+                });
+            } catch (error) {
+                console.error('Error loading map data:', error);
+            }
+        }
+
+        function initCharts() {
+            // Initialize analytics charts
+            const defectCtx = document.getElementById('defectChart').getContext('2d');
+            const severityCtx = document.getElementById('severityChart').getContext('2d');
+
+            // Sample data - you would fetch real data from your backend
+            defectChart = new Chart(defectCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Potholes', 'Longitudinal', 'Transverse', 'Alligator'],
+                    datasets: [{
+                        data: [45, 25, 20, 10],
+                        backgroundColor: ['#10B981', '#3B82F6', '#8B5CF6', '#F59E0B']
+                    }]
+                }
+            });
+
+            severityChart = new Chart(severityCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Critical', 'High', 'Medium', 'Low'],
+                    datasets: [{
+                        data: [15, 25, 35, 25],
+                        backgroundColor: ['#FF4757', '#FFA502', '#FFC312', '#A3CB38']
+                    }]
+                }
+            });
+        }
+
+        async function loadReports() {
+            try {
+                const response = await fetch('/reports');
+                const reports = await response.json();
+
+                const container = document.getElementById('reportsContainer');
+                container.innerHTML = reports.map(report => `
+                    <div class="report-card">
+                        <h4>${report.report_id} - ${new Date(report.timestamp).toLocaleDateString()}</h4>
+                        <p><strong>Location:</strong> ${report.location.address}</p>
+                        <p><strong>Defects:</strong> ${report.total_defects} total, ${report.critical_issues} critical</p>
+                        <p><strong>Estimated Cost:</strong> ${report.estimated_repair_cost}</p>
+                        <button onclick="viewReport('${report.report_id}')">View Details</button>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error('Error loading reports:', error);
+            }
+        }
+
+        async function loadAlerts() {
+            try {
+                const response = await fetch('/alerts');
+                const alerts = await response.json();
+
+                const container = document.getElementById('alertsContainer');
+                container.innerHTML = alerts.map(alert => `
+                    <div class="alert-banner" style="display: block; background: #ff4757;">
+                        <strong>${alert.message}</strong><br>
+                        Location: ${alert.location.address}<br>
+                        Time: ${new Date(alert.timestamp).toLocaleString()}<br>
+                        <button onclick="resolveAlert('${alert.alert_id}')">Mark as Resolved</button>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error('Error loading alerts:', error);
+            }
+        }
+
+        async function analyzeImage() {
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+            const location = document.getElementById('locationInput').value;
+
+            if (!file) {
+                alert('Please select an image first');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', file);
+            if (location) {
+                formData.append('location', JSON.stringify({
+                    address: location,
+                    timestamp: new Date().toISOString()
+                }));
+            }
+
+            try {
+                const response = await fetch('/analyze', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const results = await response.json();
+
+                if (results.success) {
+                    displayResults(results);
+                    showAlert('✅ Analysis completed successfully!');
+
+                    // Check for critical issues
+                    const critical = results.detections.filter(d => d.severity === 'CRITICAL');
+                    if (critical.length > 0) {
+                        showAlert(`🚨 ${critical.length} CRITICAL issues detected! Notifying authorities.`, 'critical');
+                    }
+                }
+            } catch (error) {
+                showAlert('❌ Error analyzing image: ' + error.message, 'error');
+            }
+        }
+
+        function showAlert(message, type = 'info') {
+            const banner = document.getElementById('alertBanner');
+            const alertMessage = document.getElementById('alertMessage');
+
+            alertMessage.textContent = message;
+            banner.style.display = 'block';
+            banner.style.background = type === 'critical' ? '#ff4757' : type === 'error' ? '#ff6b6b' : '#4CAF50';
+        }
+
+        function hideAlert() {
+            document.getElementById('alertBanner').style.display = 'none';
+        }
+
+        function generateSummaryReport() {
+            // Generate and download a summary report
+            const reportContent = `
+                ROAD DEFECT SUMMARY REPORT
+                Generated: ${new Date().toLocaleString()}
+                ====================================
+                Total Analyses: ${detector.detection_history.length}
+                Total Defects: ${detector.detection_history.reduce((sum, r) => sum + r.total_detections, 0)}
+                Critical Issues: ${detector.detection_history.reduce((sum, r) => sum + r.detections.filter(d => d.severity === 'CRITICAL').length, 0)}
+
+                Recommended Actions:
+                - Schedule immediate repair for critical potholes
+                - Plan preventive maintenance for high-risk areas
+                - Update road maintenance budget accordingly
+            `;
+
+            const blob = new Blob([reportContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `road-defect-report-${new Date().toISOString().split('T')[0]}.txt`;
+            a.click();
+        }
+
+        // Initialize the dashboard
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            document.getElementById('selectedFileName').textContent =
+                'Selected: ' + e.target.files[0].name;
+        });
+
+        loadStatistics();
+        checkForAlerts();
+
+        // Periodically check for new alerts
+        setInterval(checkForAlerts, 30000); // Every 30 seconds
+    </script>
+</body>
+</html>

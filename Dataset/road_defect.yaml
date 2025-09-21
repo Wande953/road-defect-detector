@@ -1,0 +1,10 @@
+names:
+  0: Alligator
+  1: Longitudinal
+  2: Pothole
+  3: Transverse
+nc: 4
+path: C:\Users\202234042\PyCharmMiscProject\Dataset
+test: images/test
+train: images/train
+val: images/val

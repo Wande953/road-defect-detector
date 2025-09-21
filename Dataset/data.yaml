@@ -1,0 +1,7 @@
+train: Dataset/train/images
+val: Dataset/val/images
+test: Dataset/test/images
+
+nc: 4
+names: ['Alligator', 'Longitudinal', 'Pothole', 'Transverse']
+

@@ -1,0 +1,90 @@
+{
+  "success": true,
+  "detections": [
+    {
+      "class": "Alligator",
+      "confidence": 0.89,
+      "severity": "Low",
+      "reliability": "Very High (Simulated)",
+      "bbox": [
+        73,
+        78,
+        232,
+        264
+      ]
+    },
+    {
+      "class": "Pothole",
+      "confidence": 0.83,
+      "severity": "Low",
+      "reliability": "Very High (Simulated)",
+      "bbox": [
+        55,
+        3,
+        165,
+        224
+      ]
+    },
+    {
+      "class": "Longitudinal",
+      "confidence": 0.65,
+      "severity": "Low",
+      "reliability": "Very High (Simulated)",
+      "bbox": [
+        51,
+        26,
+        251,
+        251
+      ]
+    },
+    {
+      "class": "Alligator",
+      "confidence": 0.63,
+      "severity": "Medium",
+      "reliability": "Very High (Simulated)",
+      "bbox": [
+        6,
+        31,
+        243,
+        235
+      ]
+    },
+    {
+      "class": "Transverse",
+      "confidence": 0.78,
+      "severity": "Medium",
+      "reliability": "Very High (Simulated)",
+      "bbox": [
+        79,
+        10,
+        253,
+        219
+      ]
+    }
+  ],
+  "total_detections": 5,
+  "detection_count": {
+    "Pothole": 1,
+    "Longitudinal": 1,
+    "Transverse": 1,
+    "Alligator": 2
+  },
+  "performance_insights": {
+    "overall_mAP50": 0.879,
+    "class_accuracies": {
+      "Pothole": 0.994,
+      "Longitudinal": 0.983,
+      "Transverse": 0.984,
+      "Alligator": 0.556
+    }
+  },
+  "timestamp": "2025-09-11T22:30:29.912731",
+  "model_version": "road_defect_v1 (87.9% mAP50 - Simulated)",
+  "filename": "20250911_223029_1_GH010394-0313_jpg.rf.8a2933d99ea869d4728b100231d31326.jpg",
+  "original_filename": "1_GH010394-0313_jpg.rf.8a2933d99ea869d4728b100231d31326.jpg",
+  "file_type": "image",
+  "charts": {
+    "distribution_chart": "/static/charts/20250911_223029_1_GH010394-0313_jpg.rf.8a2933d99ea869d4728b100231d31326.jpg_distribution.png",
+    "confidence_chart": "/static/charts/20250911_223029_1_GH010394-0313_jpg.rf.8a2933d99ea869d4728b100231d31326.jpg_confidence.png"
+  }
+}

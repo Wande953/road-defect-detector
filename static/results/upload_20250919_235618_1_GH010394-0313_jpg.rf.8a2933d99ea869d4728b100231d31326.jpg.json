@@ -1,0 +1,58 @@
+{
+  "success": true,
+  "detections": [
+    {
+      "class": "Pothole",
+      "confidence": 0.61,
+      "severity": "High",
+      "reliability": "Very High (99.4%)",
+      "size": "14cm",
+      "repair_priority": "MEDIUM (1 week)"
+    },
+    {
+      "class": "Alligator",
+      "confidence": 0.44,
+      "severity": "Low",
+      "reliability": "Moderate (55.6%)",
+      "size": "15cm",
+      "repair_priority": "LOW (2 weeks)"
+    },
+    {
+      "class": "Longitudinal",
+      "confidence": 0.93,
+      "severity": "High",
+      "reliability": "Very High (98.3%)",
+      "size": "44cm",
+      "repair_priority": "HIGH (72h)"
+    }
+  ],
+  "total_detections": 3,
+  "detection_count": {
+    "Pothole": 1,
+    "Longitudinal": 1,
+    "Transverse": 0,
+    "Alligator": 1
+  },
+  "performance_insights": {
+    "overall_mAP50": 0.879,
+    "class_accuracies": {
+      "Pothole": 0.994,
+      "Longitudinal": 0.983,
+      "Transverse": 0.984,
+      "Alligator": 0.556
+    }
+  },
+  "timestamp": "2025-09-19T23:56:18.917705",
+  "model_version": "road_defect_v1 (87.9% mAP50)",
+  "location": {
+    "latitude": 40.673089,
+    "longitude": -74.085831,
+    "address": "792 Main St, City Center"
+  },
+  "image_metadata": {
+    "resolution": "1920x1080",
+    "file_size": "2246KB"
+  },
+  "filename": "upload_20250919_235618_1_GH010394-0313_jpg.rf.8a2933d99ea869d4728b100231d31326.jpg",
+  "original_filename": "1_GH010394-0313_jpg.rf.8a2933d99ea869d4728b100231d31326.jpg"
+}

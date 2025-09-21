@@ -1,0 +1,52 @@
+/* mobile.css */
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        border-radius: 10px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .tab {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    #map {
+        height: 300px;
+    }
+
+    .upload-section {
+        padding: 15px;
+    }
+
+    button {
+        padding: 12px 20px;
+        font-size: 14px;
+        margin: 5px;
+    }
+}
+
+/* Mobile app-like interface */
+.mobile-header {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .mobile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        background: #2c3e50;
+        color: white;
+    }
+
+    .desktop-header {
+        display: none;
+    }
+}
